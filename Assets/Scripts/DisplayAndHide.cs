@@ -31,7 +31,7 @@ public class DisplayAndHide : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		ChangeSkyBox();
+		//ChangeSkyBox();
 		//TransformToolFrame("0"+" "+"100"+" "+"0"+" "+"0"+" "+"0"+" "+"0");
 	}
 

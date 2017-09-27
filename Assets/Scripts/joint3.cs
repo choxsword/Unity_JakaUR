@@ -1,35 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class joint3 : MonoBehaviour {
+public class joint3 : joint {
 
-    public float J3 = 0;
-    // Use this for initialization
-    void Start()
+
+	public override void SetJ(object val)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Add();
-
-    
-    }
-
-    void Add()
-    {
-        J3 = J3 + 1;
-    }
-    void Minus()
-    {
-        J3 = J3 - 1;
-    }
-
-  public  void SetJ(object val)
-    {
-        J3 = (float)System.Convert.ToDouble(string.Format("{0}", val));
-		transform.localRotation = Quaternion.Euler(0, -J3, 90);
+        J = (float)System.Convert.ToDouble(string.Format("{0}", val));
+		transform.localRotation = Quaternion.Euler(0, -J, 90);
     }
 }

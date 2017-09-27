@@ -44,14 +44,14 @@ public class CameraController : MonoBehaviour {
 
 				if (Input.GetAxis("Mouse ScrollWheel") < 0)
 					transform.Translate(Vector3.forward*-0.5f);
-		
+			return;
 		}
 
 
 		if (Input.GetMouseButton(0))
 		{transform.Translate(Vector3.right*-Input.GetAxis("Mouse X"));
 	
-
+			return;
 		}
 	
 
@@ -68,10 +68,11 @@ public class CameraController : MonoBehaviour {
 
 
 		transform.RotateAround(target.transform.position,Vector3.up,Input.GetAxis("Mouse X")*5);
-		
+			transform.RotateAround(target.transform.position,transform.right,-Input.GetAxis("Mouse Y")*5);
+			return;
 		}
 
-		UpdateCoor();
+
 	}
 
 	private void UpdateCoor()

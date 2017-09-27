@@ -3,17 +3,8 @@ using System.Collections;
 
 public class joint : MonoBehaviour
 {
-
-	// Use this for initialization
-	void Start ()
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}
+	public float J;
+	public virtual void SetJ(object val)
+	{}
 }
 
