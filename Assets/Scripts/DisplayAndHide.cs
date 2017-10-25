@@ -14,7 +14,8 @@ public class DisplayAndHide : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
            worldFrame = GameObject.Find("Frame");
-          // customFrame = GameObject.Find("customFrame");
+		customFrame = Instantiate(worldFrame,worldFrame.transform.position,worldFrame.transform.rotation) as GameObject;
+		customFrame.transform.localScale=new Vector3(1,1,1);
            toolFrame = GameObject.Find("toolFrame");
 			OriginTool= Instantiate(toolFrame,toolFrame.transform.position,toolFrame.transform.rotation) as GameObject;
 
@@ -24,16 +25,11 @@ public class DisplayAndHide : MonoBehaviour {
 
          //  HideWorld();
 	HideOriginTool();
+		HideCustom();
 
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-		//ChangeSkyBox();
-		//TransformToolFrame("0"+" "+"100"+" "+"0"+" "+"0"+" "+"0"+" "+"0");
-	}
 
 	void ChangeSkyBox()
 	{
@@ -126,13 +122,13 @@ public class DisplayAndHide : MonoBehaviour {
         transformPara = s.Split(new char[] { ' ' });
         //foreach(string temp in transformPara)
         //    Debug.Log(temp);
+		customFrame.transform.position=new Vector3(0,0,0);
+		customFrame.transform.localEulerAngles=new Vector3(0,180,0);
+        customFrame.transform.Translate( float.Parse(transformPara[1]) * 0.01f, float.Parse(transformPara[2]) * 0.01f, -float.Parse(transformPara[0]) * 0.01f,Space.Self);
 
-        customFrame.transform.position = new Vector3(float.Parse(transformPara[0]) * 0.1f, float.Parse(transformPara[2]) * 0.1f, float.Parse(transformPara[1]) * 0.1f);
-        //this.transform.Rotate(-90, 0, 0);
-        //this.transform.Rotate(0, 0, 90);
-        customFrame.transform.Rotate(Vector3.right * -float.Parse(transformPara[5]), Space.World);
-        customFrame.transform.Rotate(Vector3.forward * -float.Parse(transformPara[4]), Space.World);
-        customFrame.transform.Rotate(Vector3.up * -float.Parse(transformPara[3]), Space.World);
+        customFrame.transform.Rotate(Vector3.up * -float.Parse(transformPara[3]), Space.Self);
+        customFrame.transform.Rotate(Vector3.right * -float.Parse(transformPara[4]), Space.Self);
+        customFrame.transform.Rotate(Vector3.forward * float.Parse(transformPara[5]), Space.Self);
 
 
     }
@@ -140,9 +136,7 @@ public class DisplayAndHide : MonoBehaviour {
 	    void deleteCustom()
 	    {
 	
-	        customFrame.transform.position = new Vector3(0, 0, 0);
-	
-			customFrame.transform.rotation=Quaternion.identity;
+
 	        customFrame.SetActive(false);
 	
 	

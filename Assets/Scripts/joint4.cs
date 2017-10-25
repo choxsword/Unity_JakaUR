@@ -8,5 +8,7 @@ public class joint4 : joint {
     {
         J = (float)System.Convert.ToDouble(string.Format("{0}", val));
 		transform.localRotation = Quaternion.Euler(0, 90-J, 90);
+		draw();
+
     }
 }

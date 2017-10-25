@@ -16,20 +16,20 @@ public class CameraController : MonoBehaviour {
 	public Transform target;
 	
 	GameObject RefCoor;
-	Vector3 tempPosition ;
+
 
 
 
 	void Start()
 	{target=GameObject.Find("Robot").transform;
-		GameObject Frame = GameObject.Find("Frame");
-		RefCoor= Instantiate(Frame);
-		RefCoor.SetActive(true);
-		RefCoor.transform.localScale=new Vector3(1,1,1);
-		RefCoor.transform.parent=GameObject.Find("Robot").transform;
-		RefCoor.transform.rotation=Quaternion.identity;
-		UpdateCoor();
-		RefCoor.transform.localEulerAngles=new Vector3(0,180,0);
+//		GameObject Frame = GameObject.Find("Frame");
+//		RefCoor= Instantiate(Frame);
+//		RefCoor.SetActive(true);
+//		RefCoor.transform.localScale=new Vector3(1,1,1);
+//		RefCoor.transform.parent=GameObject.Find("Robot").transform;
+//		RefCoor.transform.rotation=Quaternion.identity;
+//		UpdateCoor();
+//		RefCoor.transform.localEulerAngles=new Vector3(0,180,0);
 	}
 	void Update () 
 	{
@@ -78,7 +78,7 @@ public class CameraController : MonoBehaviour {
 	private void UpdateCoor()
 	{
 		
-		tempPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2,0));  
+
 		//RefCoor.transform.position = new Vector3(tempPosition.x-6,tempPosition.y-3,tempPosition.z-5);
 		
 		
